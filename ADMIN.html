@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Voting PEMILIHAN KETUA & WAKIL KETUA OSIS 2026/2027</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("ChatGPT\ Image\ Oct\ 26\,\ 2025\,\ 07_05_27\ PM.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 5px;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        .logo-sekolah {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .logo-osis {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        h1 {
+            letter-spacing: '1px';
+            text-align: center;
+            margin-top: 15px;
+        }
+        .total {
+            font-size: 2,5em;
+            margin-bottom: 30px;
+        }
+        button {
+            background: #4CAF50;
+            color: rgb(250, 250, 250);
+            border: none;
+            padding: 9px 19px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-bottom: 1%;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        canvas {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="-removebg-preview.png" alt="Logo Sekolah" class="logo-sekolah" >
+        <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+            <h1 style="margin: 0; ;">PEMILIHAN KETUA & WAKIL KETUA OSIS 2026/2027</h1>
+            <p style="margin: 0; font-size: 18px; text-align: center; flex: 1;
+            ;">Hasil Voting Suara Pemilihan Ketua & Wakil Ketua OSIS 2026/2027</p>
+        </div>
+        <img src="file.png" alt="Logo OSIS" class="logo-osis" >
+    </header>
+    <div class="container">
+        <div class="total" id="totalVotes">Total Suara: 0</div>
+        <button onclick="loadResults()">Refresh Hasil</button>
+        <button onclick="resetVotes()">Reset Votes</button>
+        <canvas id="voteChart"></canvas>
+    </div>
+    <script>
+        let chart;
+
+        function resetVotes() {
+            localStorage.setItem('voteCounts', JSON.stringify({1: 0, 2: 0, 3: 0, 4: 0}));
+            localStorage.setItem('votes', JSON.stringify([]));
+            loadResults();
+        }
+
+        function loadResults() {
+            const votes = JSON.parse(localStorage.getItem('voteCounts')) || {1:0, 2:0, 3:0, 4:0};
+            const total = Object.values(votes).reduce((a,b) => a+b, 0);
+            document.getElementById('totalVotes').textContent = `Total Suara: ${total}`;
+            const data = [votes[1] || 0, votes[2] || 0, votes[3] || 0, votes[4] || 0];
+            const labels = data.map((count, index) => {
+                const percent = total > 0 ? ((count / total) * 100).toFixed(2) : 0;
+                return `Paslon ${index + 1}: ${count} suara (${percent}%)`;
+            });
+            const colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00'];
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            const ctx = document.getElementById('voteChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        borderColor: colors.map(c => c.replace(')', ',0.8)').replace('rgb', 'rgba')),
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'white',
+                                font: {
+                                    size: 15
+                                }
+                            }
+                        },
+                        tooltip: {
+                            enabled: false
+                        },
+                        datalabels: {
+                            anchor: 'center',
+                            align: 'center',
+                            color: 'white',
+                            font: {
+                                size: 10,
+                                weight: 'bold'
+                            },
+                            formatter: (value, context) => {
+                                const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                const percent = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                                return `${percent}%\n${value}`;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        loadResults();
+        setInterval(loadResults, 5000); // Auto-refresh every 5 seconds
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

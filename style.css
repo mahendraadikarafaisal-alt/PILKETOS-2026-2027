@@ -1,150 +1,235 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-image: url('sekolah.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 20px;
-    color: #333;
+font-family: 'Arial', sans-serif;
+background-image: url('ChatGPT\ Image\ Oct\ 26\,\ 2025\,\ 06_43_57\ PM.png'); /* ganti sesuai nama file background kamu */
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+margin: 0;
+padding: 20px;
+color: #f5f5f5;
 }
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    margin-bottom: 40px;
-    gap: 20px;
-}
-.logo-sekolah {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-.logo-osis {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-h1 {
-    font-size: 2.5em;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    flex: 1;
-    text-align: center;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-.candidate-card {
-    background: rgb(253, 252, 255);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-.candidate-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-}
-.candidate-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 0;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 4px solid #000000;
-}
-.candidate-name {
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: #000000;
-}
-.modal {
-    display: none;
+.login-screen {
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    animation: fadeIn 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(63, 53, 53, 0.5);
+    z-index: 1000;
+}
+.login-container {
+    background: rgba(133, 68, 68, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+.login-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+.login-container input:focus {
+    border-color: rgb(18, 185, 23);
+    outline: none;
+}
+.login-container button {
+    padding: 12px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: rgb(236, 15, 15);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.login-container button:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+}
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+header {
+display: flex;
+align-items: center;
+justify-content: center;
+color: #ffffff;
+margin-bottom: 40px;
+gap: 20px;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.logo-sekolah {
+width: 150px;
+height: 200px;
+object-fit: contain;
+}
+.logo-osis {
+width: 90px;
+height: 90px;
+object-fit: contain;
+}
+h1 {
+font-size: 2.5em;
+margin: 0;
+color: #e8fbe0;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+flex: 1;
+text-align: center;
+}
+
+/* KANDIDAT */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 30px;
+}
+.candidate-card {
+background: rgba(20, 80, 20, 0.7);
+border-radius: 20px;
+padding: 20px;
+text-align: center;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.candidate-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.candidate-photo {
+width: 150px;
+height: 150px;
+border-radius: 0;
+object-fit: cover;
+margin-bottom: 15px;
+border: 4px solid #d2f8cf;
+}
+.candidate-name {
+font-size: 1.3em;
+margin: 10px 0;
+color: #ffffff;
+}
+
+/* MODAL VISI MISI */
+.modal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.6);
+animation: fadeIn 0.3s ease;
 }
 .modal-content {
-    background: rgb(255, 255, 255);
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    position: relative;
-    animation: slideIn 0.3s ease;
+background: rgba(25, 70, 25, 0.8);
+margin: 5% auto;
+padding: 30px;
+border-radius: 20px;
+width: 80%;
+max-width: 500px;
+text-align: center;
+position: relative;
+animation: slideIn 0.3s ease;
+color: #e9ffe9;
+box-shadow: 0 0 25px rgba(0,0,0,0.5);
+backdrop-filter: blur(15px);
 }
 .close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #aaa;
+position: absolute;
+right: 15px;
+top: 10px;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+color: #fff;
 }
 .close:hover {
-    color: #000;
+color: #ffd700;
 }
 .vision-misi {
     text-align: left;
     margin: 20px 0;
 }
 .vision-misi h3 {
-    color: #000000;
-    border-bottom: 2px solid #000000;
-    color:#000000;
-    padding-bottom: 5px;
+color: #eaffea;
+border-bottom: 2px solid #9cff97;
+padding-bottom: 5px;
 }
+.vision-misi p {
+color: #dfffdc;
+}
+
+/* TOMBOL VOTE */
 .vote-btn {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s ease;
+background: linear-gradient(45deg, #3ad64d, #45a049);
+color: white;
+border: none;
+padding: 12px 28px;
+font-size: 1.1em;
+border-radius: 30px;
+cursor: pointer;
+margin-top: 20px;
+transition: background 0.3s ease;
+box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 .vote-btn:hover:not(:disabled) {
-    background: #218838;
+background: linear-gradient(45deg, #55e066, #2ca836);
+transform: scale(1.05);
 }
 .vote-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+background: #5c5c5c;
+cursor: not-allowed;
 }
+
+/* PESAN TERIMA KASIH */
 .thanks-message {
-    display: none;
-    background: #d4edda;
-    color: #155724;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    animation: fadeIn 0.5s ease;
+display: none;
+background: rgba(39, 153, 41, 0.8);
+color: #fff;
+padding: 20px;
+border-radius: 10px;
+margin-top: 20px;
+animation: fadeIn 0.5s ease;
 }
+
+/* ANIMASI */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+from { opacity: 0; }
+to { opacity: 1; }
 }
 @keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+from { transform: translateY(-50px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
 }
 .thanks-screen {
     display: none;
@@ -153,7 +238,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('sekolah.png');
+    background-image: url('ChatGPT\ Image\ Oct\ 26\,\ 2025\,\ 06_43_57\ PM.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -181,7 +266,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('sekolah.png');
+    background-image: url('ChatGPT\ Image\ Oct\ 26\,\ 2025\,\ 06_43_57\ PM.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

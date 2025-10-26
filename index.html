@@ -8,71 +8,125 @@
 </head>
 <body>
     <header>
-        <img src="-removebg-preview.png" alt="Logo Sekolah" class="logo-sekolah">
+        <img src="unnamed-removebg-.png" alt="Logo Sekolah" class="logo-sekolah">
         <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
             <h1 style="margin: 0;">PEMILIHAN KETUA & WAKIL KETUA OSIS 2026/2027</h1>
             <p style="margin: 0;">Pilih calon ketua OSIS terbaik untuk masa depan sekolah kita!</p>
         </div>
         <img src="file.png" alt="Logo OSIS" class="logo-osis">
     </header>
-    <form id=""voteForm">
-    <div class="container">
-        <div class="candidate-card" onclick="openModal(1)">
-            <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">1</div>
-            <img src="ANIES.png" alt="Calon 1" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+1'">
-            <h4 class="candidate-name">Ketua: Anies Baswedan<br>Wakil: Muahmin Iskandar</h2>
-            <p>Klik untuk melihat visi dan misi</p>
-        </div>
-
-        <div class="candidate-card" onclick="openModal(2)">
-            <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;"> 2</div>
-            <img src="PRABOWO.png" alt="Calon 2" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+2'">
-            <h2 class="candidate-name">Ketua: Prabowo Subianto<br>Wakil: Gibran Rakabuming Raka</h2>
-            <p>Klik untuk melihat visi dan misi</p>
-        </div>
-
-        <div class="candidate-card" onclick="openModal(3)">
-            <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">3</div>
-            <img src="GANJAR.png" alt="Calon 3" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+3'">
-            <h2 class="candidate-name">Ketua: Ganjar<br>Wakil: Teuapal</h2>
-            <p>Klik untuk melihat visi dan misi</p>
-        </div>
-
-        <div class="candidate-card" onclick="openModal(4)">
-            <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;"> 4</div>
-            <img src="MAS NAZRIEL.png" alt="Calon 4" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+4'">
-            <h2 class="candidate-name">Ketua: Mas Nazriel Ganteng<br>Wakil: Istrinya Anime</h2>
-            <p>Klik untuk melihat visi dan misi</p>
-        </div>
-    </div>
-
-    <div id="animation-screen" class="animation-screen" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); z-index: 3000; justify-content: center; align-items: center; flex-direction: row; color: white;">
-        <img src="file.png" alt="Logo OSIS" style="width: 150px; animation: fadeIn 2s ease-in-out infinite alternate;">
-    </div>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modal-photo" src="" alt="Calon" class="candidate-photo" style="display: block; margin: 0 auto 20px;">
-            <h2 id="modal-name"></h2>
-            <div class="vision-misi">
-                <h3>Visi</h3>
-                <p id="modal-visi"></p>
-                <h3>Misi</h3>
-                <p id="modal-misi"></p>
+    <div id="voting-page" style="display: block;">
+        <div class="container">
+            <div class="candidate-card" onclick="openModal(1)">
+                <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">1</div>
+                <img src="ANIES.png" alt="Calon 1" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+1'">
+                <h4 class="candidate-name">Ketua: Anies Baswedan<br>Wakil: Muahmin Iskandar</h4>
+                <p>Klik untuk melihat visi dan misi</p>
             </div>
-            <button id="vote-btn" class="vote-btn" onclick="vote()">Vote</button>
-            <div id="thanks" class="thanks-message">
-                Terima kasih atas partisipasi Anda! Suara Anda telah dicatat.
+
+            <div class="candidate-card" onclick="openModal(2)">
+                <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">2</div>
+                <img src="PRABOWO.png" alt="Calon 2" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+2'">
+                <h4 class="candidate-name">Ketua: Prabowo Subianto<br>Wakil: Gibran Rakabuming Raka</h4>
+                <p>Klik untuk melihat visi dan misi</p>
+            </div>
+
+            <div class="candidate-card" onclick="openModal(3)">
+                <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">3</div>
+                <img src="GANJAR.png" alt="Calon 3" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+3'">
+                <h4 class="candidate-name">Ketua: Ganjar<br>Wakil: Teuapal</h4>
+                <p>Klik untuk melihat visi dan misi</p>
+            </div>
+
+            <div class="candidate-card" onclick="openModal(4)">
+                <div style="font-size: 1.5em; font-weight: bold; color: #000000; margin-bottom: 10px;">4</div>
+                <img src="MAS NAZRIEL.png" alt="Calon 4" class="candidate-photo" onerror="this.src='https://via.placeholder.com/150?text=Calon+4'">
+                <h4 class="candidate-name">Ketua: Mas Nazriel Ganteng<br>Wakil: Istrinya Anime</h4>
+                <p>Klik untuk melihat visi dan misi</p>
             </div>
         </div>
-    </div>
+
+        <div id="animation-screen" class="animation-screen" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background-image: url('sekolah.png'); background-size: cover; background-position: center; z-index: 3000; justify-content: center; align-items: center; flex-direction: row; color: white;">
+            <img src="file.png" alt="Logo OSIS" style="width: 150px; animation: fadeIn 2s ease-in-out infinite alternate;">
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modal-photo" src="" alt="Calon" class="candidate-photo" style="display: block; margin: 0 auto 20px;">
+                <h2 id="modal-name"></h2>
+                <div class="vision-misi">
+                    <h3>Visi</h3>
+                    <p id="modal-visi"></p>
+                    <h3>Misi</h3>
+                    <p id="modal-misi"></p>
+                </div>
+                <button id="vote-btn" class="vote-btn" onclick="vote()">Vote</button>
+                <div id="thanks" class="thanks-message">
+                    Terima kasih atas partisipasi Anda! Suara Anda telah dicatat.
+                </div>
+            </div>
+        </div>
 
         <div id="thanks-screen" class="thanks-screen">
-            <img src="file.png" alt="Logo OSIS" style="width: 200px; height: auto; margin: 20px 0;">
+            <img src="ChatGPT Image Oct 26, 2025, 07_40_23 PM.png" alt="Logo OSIS" style="width: 200px; height: auto; margin: 20px 0;">
             <div id="successMessage" style="font-size: 18px; color: white; text-shadow: 1px 1px 2px #000;"></div>
+            <div id="countdown" class="countdown"></div>
         </div>
+    </div>
+
+    <div id="results-page" style="display: none; color: white; text-align: center; padding: 20px;">
+        <h2>Hasil Voting</h2>
+        <div id="results-container" style="max-width: 600px; margin: 0 auto;"></div>
+    </div>
 
     <script src="script.js"></script>
+    <script>
+        function showVotingPage() {
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('voting-page').style.display = 'block';
+        }
+
+        function showResultsPage() {
+            document.getElementById('voting-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'block';
+            renderResults();
+        }
+
+        function renderResults() {
+            const voteCounts = JSON.parse(localStorage.getItem('voteCounts')) || {1:0, 2:0, 3:0, 4:0};
+            const totalVotes = Object.values(voteCounts).reduce((a,b) => a + b, 0);
+            const container = document.getElementById('results-container');
+            container.innerHTML = '';
+            for (let i = 1; i <= 4; i++) {
+                const count = voteCounts[i] || 0;
+                const percent = totalVotes > 0 ? ((count / totalVotes) * 100).toFixed(2) : 0;
+                const candidate = candidates[i];
+                const div = document.createElement('div');
+                div.style.marginBottom = '15px';
+                div.style.background = 'rgba(0,0,0,0.5)';
+                div.style.padding = '10px';
+                div.style.borderRadius = '10px';
+                div.innerHTML = `<strong>Paslon ${i} - Ketua: ${candidate.ketua}, Wakil: ${candidate.wakil}</strong><br>Suara: ${count} (${percent}%)`;
+                container.appendChild(div);
+            }
+            const totalDiv = document.createElement('div');
+            totalDiv.style.marginTop = '20px';
+            totalDiv.style.fontWeight = 'bold';
+            totalDiv.textContent = `Total Suara: ${totalVotes}`;
+            container.appendChild(totalDiv);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'a') {
+                e.preventDefault();
+                window.location.href = 'ADMIN.html';
+            } else if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                location.reload();
+            }
+        });
+    </script>
 </body>
 </html>
